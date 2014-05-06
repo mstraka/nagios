@@ -2,28 +2,35 @@
 # DEPLOY_NAGIOS_NRPE_DIR="/etc/nrpe.d"
 
 # SERVERS
+tmpl_std_node:all_nodes:common,common_extra:
+
 ce-cream-iep-grid.saske.sk:all_nodes:common,common_extra:check_pbsserver,check_maui,check_lcg-CA,check_mysqld_status,check_munge,check_grid_cores,check_bdii_status
 ce-iep-grid.saske.sk:all_nodes:common,common_extra:check_lcg-CA,check_mysqld_status,check_bdii_status,check_nfs
 vobox2-iep-grid.saske.sk:all_nodes:common,common_extra:check_cvmfs_alice
-ui-iep-grid.saske.sk:all_nodes:common,common_extra:
-gridis-iep-grid.saske.sk:all_nodes:common,common_extra:
-gridmon-iep-grid.saske.sk:all_nodes:common,common_extra:
+ui-iep-grid.saske.sk:std_node
+gridis-iep-grid.saske.sk:std_node
+gridmon-iep-grid.saske.sk:std_node
 glmon-iep-grid.saske.sk:all_nodes:common,common_extra:check_mysqld_status,check_bdii_status
 
 # dodaj check_vorolemap
 se-iep-grid.saske.sk:all_nodes:common,common_extra:check_lcg-CA,check_bdii_status
 
-squid-iep-grid.saske.sk:all_nodes:common,common_extra:
-perfsonar01-iep-grid.saske.sk:all_nodes:common,common_extra:
-perfsonar02-iep-grid.saske.sk:all_nodes:common,common_extra:
-virt01-iep-grid.saske.sk:all_nodes:common,common_extra:check_smartmon_sda,check_smartmon_sdb
-virt02-iep-grid.saske.sk:all_nodes:common,common_extra:check_smartmon_sda,check_smartmon_sdb
-virt03-iep-grid.saske.sk:all_nodes:common,common_extra:check_smartmon_sda,check_smartmon_sdb
-virt04-iep-grid.saske.sk:all_nodes:common,common_extra:check_smartmon_sda,check_smartmon_sdb
+squid-iep-grid.saske.sk:std_node
+perfsonar01-iep-grid.saske.sk:std_node
+perfsonar02-iep-grid.saske.sk:std_node
+
+tmpl_virt:all_nodes:common,common_extra:check_smartmon_sda,check_smartmon_sdb
+virt01-iep-grid.saske.sk:virt
+virt02-iep-grid.saske.sk:virt
+virt03-iep-grid.saske.sk:virt
+virt04-iep-grid.saske.sk:virt
 
 # switch
 swrmain-iep-grid.saske.sk:all_switch:switch_swrmain:
-#swr1-iep-grid.saske.sk:all_switch:switch_swr1:
+swr1-iep-grid.saske.sk:all_switch:switch_swr1:
+swr2-iep-grid.saske.sk:all_switch:switch_swr2:
+swr3-iep-grid.saske.sk:all_switch:switch_swr3:
+swr4-iep-grid.saske.sk:all_switch:switch_swr4:
 
 # WN
 tmpl_wn_std:all_nodes:common,common_extra,grid_wn:check_disk_sda2
@@ -42,7 +49,7 @@ n10-iep-grid.saske.sk:wn_std
 n11-iep-grid.saske.sk:wn_std
 n12-iep-grid.saske.sk:wn_std
 n13-iep-grid.saske.sk:wn_std
-n14-iep-grid.saske.sk:wn_std
+#n14-iep-grid.saske.sk:wn_std
 n15-iep-grid.saske.sk:wn_std
 n16-iep-grid.saske.sk:wn_std
 n17-iep-grid.saske.sk:wn_std
